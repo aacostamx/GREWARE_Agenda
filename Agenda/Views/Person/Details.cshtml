@@ -1,0 +1,122 @@
+﻿@model Agenda.Models.Person
+
+@{
+    ViewBag.Title = "Agenda - Details";
+}
+
+<h2>Person</h2>
+
+<div>
+    <h4>Full Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <br />
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactInfo)
+            </dt>
+            <dd>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Phone</th>
+                            <th>Mail</th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <a href="/PersonInfo/Create"><strong>Add new contact information</strong></a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.ContactInfo)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Website)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Addresses)
+            </dt>
+            <dd>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Direction</th>
+                            <th>Country</th>
+                            <th>State</th>
+                            <th>ZIP</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <a href="/Address/Create"><strong>Add new contact address</strong></a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model.Addresses)
+                {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direction)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Country)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.State)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ZIP)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </dd>
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
