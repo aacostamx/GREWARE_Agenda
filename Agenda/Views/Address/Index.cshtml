@@ -13,60 +13,61 @@
         <input type="submit" value="Search" />
     </p>
 }
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Person.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direction)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZIP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td colspan="6">
-                <a href="Address/Create"><strong>Add new address</strong></a>
-            </td>
-        </tr>
-    </tfoot>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Person.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Direction)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ZIP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Country)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
-                    @Html.ActionLink("Details", "Details", "Person", new { id = item.PersonID }, null)  |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direction)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ZIP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <a href="Address/Create"><strong>Add new address</strong></a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Person.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direction)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZIP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
+                        @Html.ActionLink("Details", "Details", "Person", new { id = item.PersonID }, null)  |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -14,53 +14,55 @@
     </p>
 }
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Person.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Website)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td colspan="5">
-                <a href="/PersonInfo/Create"><strong>Add new contact information</strong></a>
-            </td>
-        </tr>
-    </tfoot>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Person.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Mail)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Website)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PersonInfoID }) |
-                    @Html.ActionLink("Details", "Details", "Person", new { id = item.PersonID }, null) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PersonInfoID })
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Website)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <a href="/PersonInfo/Create"><strong>Add new contact information</strong></a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Person.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Website)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PersonInfoID }) |
+                        @Html.ActionLink("Details", "Details", "Person", new { id = item.PersonID }, null) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PersonInfoID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -16,49 +16,51 @@
         </p>
     </div>
 }
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm })
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td colspan="4">
-                <a href="Person/Create"><strong>Add new person</strong></a>
-            </td>
-        </tr>
-    </tfoot>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DOB)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
+                <th>
+                    @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm })
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <a href="Person/Create"><strong>Add new person</strong></a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DOB)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
