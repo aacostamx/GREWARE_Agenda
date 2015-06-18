@@ -39,39 +39,41 @@
                 @Html.DisplayNameFor(model => model.ContactInfo)
             </dt>
             <dd>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Phone</th>
-                            <th>Mail</th>
-                            <th>Website</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3">
-                                <a href="/PersonInfo/Create"><strong>Add new contact information</strong></a>
-                            </td>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        @foreach (var item in Model.ContactInfo)
-                        {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Phone)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Mail)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Website)
+                                <th>Phone</th>
+                                <th>Mail</th>
+                                <th>Website</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <a href="/PersonInfo/Create"><strong>Add new contact information</strong></a>
                                 </td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            </dd>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model.ContactInfo)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Mail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Website)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+</dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Addresses)
             </dt>
